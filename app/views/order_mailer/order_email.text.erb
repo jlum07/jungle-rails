@@ -1,15 +1,12 @@
-<section class="orders-show">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for your order # <%= @order.id %></h1>
 
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
-  <div class="order-summary jumbotron">
-    <h4>Thank you for your order!</h4>
-  </div>
-
-  <div class="panel panel-default items">
-    <table class="table table-bordered">
+    <table>
       <thead>
         <tr>
           <th colspan="2">Product</th>
@@ -24,7 +21,7 @@
           <% prod = Product.find(line.product_id) %>
           <tr>
             <td>
-              <%= image_tag prod.image.tiny %>
+
             </td>
             <td>
               <h4><%= prod.name %></h4>
@@ -38,7 +35,7 @@
               <%= line.quantity %>
             </td>
             <td>
-              <%= (line.total_price_cents/100.0000).round(2) %>
+              <%= line.total_price_cents/100.00 %>
             </td>
           </tr>
         <% end %>
@@ -49,13 +46,11 @@
             TOTAL:
           </th>
           <th>
-            <%= (@order.total_cents/100.00).round(2) %>
+            <%= @order.total_cents/100.00 %>
           </th>
         </tr>
       </tfoot>
     </table>
-  </div>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
-</section>
+  </body>
+</html>
