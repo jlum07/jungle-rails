@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       # logged in when they navigate around our website.
       session[:user_id] = user.id
       redirect_to [:root]
-    # elsif !user && param
     else
     # If user's login doesn't work, send them back to the login form.
       redirect_to [:new, :session]
