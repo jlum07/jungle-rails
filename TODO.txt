@@ -1,0 +1,4 @@
+Non logged in user crashes cart
+Email crashes
+Register user crashes
+Password check
