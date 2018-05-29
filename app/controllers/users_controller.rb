@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    # TODO password confirmation check
     if @user.save
-      @session[:user_id] = @user.id
-      redirect_to [:root]#, notice: 'Categories created!'
+      session[:user_id] = @user.id
+      redirect_to [:root]
     else
       render [:new, :user]
     end
